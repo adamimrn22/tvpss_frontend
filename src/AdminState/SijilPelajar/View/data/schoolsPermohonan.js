@@ -96,7 +96,7 @@ const skudaiSchools = [
     schoolName: "SK Taman Universiti",
     principalName: "Encik Abdullah bin Osman",
     jenis: "Pencapaian Kokurikulum",
-    status: "dijana",
+    status: "Dijana",
     jenisMohon: "bulk",
   },
 ];

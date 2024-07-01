@@ -1,3 +1,4 @@
+import React, { useState } from "react";
 import { Link as RouterLink } from "react-router-dom";
 import {
   Autocomplete,
@@ -28,6 +29,8 @@ import districtsData from "../data/districtData"; // Assuming the path is correc
 import schoolsData from "../data/schoolsData"; // Assuming the path is correct
 
 const EditUserContent = () => {
+  const [userType, setUserType] = useState("");
+
   const role = [
     { label: "SUPER ADMIN" },
     { label: "ADMIN STATE" },
@@ -43,6 +46,107 @@ const EditUserContent = () => {
       Tambah Pengguna
     </Typography>,
   ];
+
+  const renderAdditionalFields = () => {
+    switch (userType) {
+      case "ADMIN SCHOOL":
+        return (
+          <>
+            <AutocompleteField
+              options={statesData}
+              label="Negeri"
+              placeholder="Pilih Negeri Pengguna"
+              icon={<MyLocationOutlinedIcon />}
+            />
+            <AutocompleteField
+              options={districtsData["johor"]}
+              label="Daerah"
+              placeholder="Pilih Daerah Pengguna"
+              icon={<MyLocationOutlinedIcon />}
+            />
+            <AutocompleteField
+              options={schoolsData["skudai"]}
+              label="Nama Sekolah"
+              placeholder="Pilih Nama Sekolah Pengguna"
+              icon={<HomeWorkOutlinedIcon />}
+            />
+          </>
+        );
+      case "ADMIN PPD":
+        return (
+          <>
+            <AutocompleteField
+              options={statesData}
+              label="Negeri"
+              placeholder="Pilih Negeri Pengguna"
+              icon={<MyLocationOutlinedIcon />}
+            />
+            <AutocompleteField
+              options={districtsData["johor"]}
+              label="Daerah"
+              placeholder="Pilih Daerah Pengguna"
+              icon={<MyLocationOutlinedIcon />}
+            />
+          </>
+        );
+      case "ADMIN STATE":
+        return (
+          <AutocompleteField
+            options={statesData}
+            label="Negeri"
+            placeholder="Pilih Negeri Pengguna"
+            icon={<MyLocationOutlinedIcon />}
+          />
+        );
+      default:
+        return null;
+    }
+  };
+
+  const AutocompleteField = ({ options, label, placeholder, icon }) => (
+    <Autocomplete
+      size="small"
+      disablePortal
+      options={options}
+      sx={{ marginBottom: 3 }}
+      renderInput={(params) => (
+        <TextField
+          {...params}
+          label={label}
+          placeholder={placeholder}
+          InputProps={{
+            ...params.InputProps,
+            startAdornment: (
+              <InputAdornment position="start">
+                <IconButton>{icon}</IconButton>
+              </InputAdornment>
+            ),
+            sx: {
+              color: "primary.main",
+              fontWeight: "normal",
+              "& .MuiOutlinedInput-notchedOutline": {
+                borderColor: "primary.light",
+              },
+              "&:hover .MuiOutlinedInput-notchedOutline": {
+                borderColor: "primary.main",
+              },
+              "&.Mui-focused .MuiOutlinedInput-notchedOutline": {
+                borderColor: "primary.main",
+              },
+              "& .MuiSvgIcon-root": {
+                color: "primary.main",
+              },
+            },
+          }}
+          InputLabelProps={{
+            sx: {
+              color: "primary.main",
+            },
+          }}
+        />
+      )}
+    />
+  );
 
   return (
     <Box sx={{ backgroundColor: "#F8FAFF", p: 1, m: 0 }}>
@@ -84,6 +188,9 @@ const EditUserContent = () => {
               id="combo-box-demo"
               options={role}
               sx={{ marginBottom: 3 }}
+              onChange={(event, newValue) => {
+                setUserType(newValue ? newValue.label : "");
+              }}
               renderInput={(params) => (
                 <TextField
                   {...params}
@@ -124,142 +231,7 @@ const EditUserContent = () => {
               )}
             />
 
-            <Autocomplete
-              size="small"
-              disablePortal
-              id="combo-box-demo"
-              options={statesData}
-              sx={{ marginBottom: 3 }}
-              renderInput={(params) => (
-                <TextField
-                  {...params}
-                  placeholder="Pilih Negeri Pengguna"
-                  label="Negeri"
-                  InputProps={{
-                    ...params.InputProps,
-                    startAdornment: (
-                      <InputAdornment position="start">
-                        <IconButton>
-                          <MyLocationOutlinedIcon />
-                        </IconButton>
-                      </InputAdornment>
-                    ),
-                    sx: {
-                      color: "primary.main",
-                      fontWeight: "normal",
-                      "& .MuiOutlinedInput-notchedOutline": {
-                        borderColor: "primary.light",
-                      },
-                      "&:hover .MuiOutlinedInput-notchedOutline": {
-                        borderColor: "primary.main",
-                      },
-                      "&.Mui-focused .MuiOutlinedInput-notchedOutline": {
-                        borderColor: "primary.main",
-                      },
-                      "& .MuiSvgIcon-root": {
-                        color: "primary.main",
-                      },
-                    },
-                  }}
-                  InputLabelProps={{
-                    sx: {
-                      color: "primary.main",
-                    },
-                  }}
-                />
-              )}
-            />
-
-            <Autocomplete
-              size="small"
-              disablePortal
-              id="combo-box-demo"
-              options={districtsData["johor"]}
-              sx={{ marginBottom: 3 }}
-              renderInput={(params) => (
-                <TextField
-                  {...params}
-                  label="Daerah"
-                  placeholder="Pilih Daerah Pengguna"
-                  InputProps={{
-                    ...params.InputProps,
-                    startAdornment: (
-                      <InputAdornment position="start">
-                        <IconButton>
-                          <MyLocationOutlinedIcon />
-                        </IconButton>
-                      </InputAdornment>
-                    ),
-                    sx: {
-                      color: "primary.main",
-                      fontWeight: "normal",
-                      "& .MuiOutlinedInput-notchedOutline": {
-                        borderColor: "primary.light",
-                      },
-                      "&:hover .MuiOutlinedInput-notchedOutline": {
-                        borderColor: "primary.main",
-                      },
-                      "&.Mui-focused .MuiOutlinedInput-notchedOutline": {
-                        borderColor: "primary.main",
-                      },
-                      "& .MuiSvgIcon-root": {
-                        color: "primary.main",
-                      },
-                    },
-                  }}
-                  InputLabelProps={{
-                    sx: {
-                      color: "primary.main",
-                    },
-                  }}
-                />
-              )}
-            />
-            <Autocomplete
-              size="small"
-              disablePortal
-              id="combo-box-demo"
-              options={schoolsData["skudai"]}
-              sx={{ marginBottom: 4 }}
-              renderInput={(params) => (
-                <TextField
-                  {...params}
-                  label="Nama Sekolah"
-                  placeholder="Pilih Nama Sekolah Pengguna"
-                  InputProps={{
-                    ...params.InputProps,
-                    startAdornment: (
-                      <InputAdornment position="start">
-                        <IconButton>
-                          <HomeWorkOutlinedIcon />
-                        </IconButton>
-                      </InputAdornment>
-                    ),
-                    sx: {
-                      color: "primary.main",
-                      fontWeight: "normal",
-                      "& .MuiOutlinedInput-notchedOutline": {
-                        borderColor: "primary.light",
-                      },
-                      "&:hover .MuiOutlinedInput-notchedOutline": {
-                        borderColor: "primary.main",
-                      },
-                      "&.Mui-focused .MuiOutlinedInput-notchedOutline": {
-                        borderColor: "primary.main",
-                      },
-                      "& .MuiSvgIcon-root": {
-                        color: "primary.main",
-                      },
-                    },
-                  }}
-                  InputLabelProps={{
-                    sx: {
-                      color: "primary.main",
-                    },
-                  }}
-                />
-              )}
-            />
+            {renderAdditionalFields()}
 
             <Stack direction={"row"} justifyContent={"end"}>
               <RouterLink

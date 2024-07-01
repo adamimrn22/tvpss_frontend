@@ -1,4 +1,4 @@
-import { useState, useEffect, useCallback } from "react";
+import { useState, useEffect } from "react";
 import { Link } from "react-router-dom";
 import {
   Table,
@@ -9,7 +9,6 @@ import {
   TableCell,
   Paper,
   Stack,
-  Box,
   TableSortLabel,
   Typography,
   Button,
@@ -21,7 +20,7 @@ import RowsPerPageSelector from "../components/Filters/RowsPerPageSelector";
 import CustomPagination from "../components/Filters/CustomPagination";
 import DeleteIcon from "@mui/icons-material/Delete";
 import DeleteModal from "./DeleteModal"; // Import DeleteModal
-import CloudDownloadOutlinedIcon from "@mui/icons-material/CloudDownloadOutlined";
+import AktifChip from "./AktifChip";
 
 import ExportButton from "../../AdminState/ExportButton";
 
@@ -279,7 +278,9 @@ const SchoolTable = ({ schools }) => {
                   <TableCell>{school.schoolName}</TableCell>
                   <TableCell>{school.principalName}</TableCell>
                   <TableCell>{school.version}</TableCell>
-                  <TableCell>{school.status}</TableCell>
+                  <TableCell>
+                    <AktifChip schoolType={school.status} />
+                  </TableCell>
                   <TableCell>
                     <Stack alignItems={"center"}>
                       <Link

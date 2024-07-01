@@ -53,7 +53,7 @@ const ContentPage = () => {
               <Paper
                 variant="outlined"
                 sx={{
-                  height: "500px",
+                  height: "550px",
                   padding: "25px",
                 }}
               >
@@ -157,7 +157,7 @@ const ContentPage = () => {
               <Paper
                 variant="outlined"
                 sx={{
-                  height: "500px",
+                  height: "550px",
                   padding: "25px",
                 }}
               >

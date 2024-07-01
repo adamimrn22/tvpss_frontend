@@ -25,11 +25,11 @@ import DeleteModal from "./DeleteModal";
 import TolakModal from "./TolakPermohonan"; // Assuming you have a separate component for TolakModal
 import LulusModal from "./LulusPermohonan"; // Assuming you have a separate component for LulusModal
 
-import CloudDownloadOutlinedIcon from "@mui/icons-material/CloudDownloadOutlined";
 import BlockOutlinedIcon from "@mui/icons-material/BlockOutlined";
 import CheckCircleOutlinedIcon from "@mui/icons-material/CheckCircleOutlined";
 
 import ExportButton from "../../ExportButton";
+import StatusChip from "./StatusChip";
 
 const AllUserKrewMohonTable = ({ users }) => {
   const [page, setPage] = useState(1);
@@ -331,7 +331,9 @@ const AllUserKrewMohonTable = ({ users }) => {
                   <TableCell>{user.kadPengenalan}</TableCell>
                   <TableCell>{user.tingkatan}</TableCell>
                   <TableCell>{user.jawatan}</TableCell>
-                  <TableCell>{user.status}</TableCell>
+                  <TableCell>
+                    <StatusChip statusType={user.status} />
+                  </TableCell>
                   <TableCell>
                     <Stack direction={"row"} justifyContent={"center"}>
                       <Link

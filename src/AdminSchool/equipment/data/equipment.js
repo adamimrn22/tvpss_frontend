@@ -4,14 +4,14 @@ const equipment = [
     jenis: "Kamera",
     location: "Block C",
     dateAcquired: "2023-05-15",
-    status: "berfungsi",
+    status: "Berfungsi",
   },
   {
     name: "Microphone Shure SM58",
     jenis: "Microphone",
     location: "Block C",
     dateAcquired: "2023-06-20",
-    status: "Berfungsi",
+    status: "Tidak Berfungsi",
   },
   {
     name: "Lighting Studio Profoto B10",

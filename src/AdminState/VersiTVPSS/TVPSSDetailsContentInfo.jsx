@@ -1,8 +1,13 @@
-import React from "react";
-import { Box, Paper, Typography, Grid } from "@mui/material";
+import { useState } from "react";
+import { Box, Paper, Typography, Grid, IconButton, Modal } from "@mui/material";
+import ImageIcon from "@mui/icons-material/Image";
 
 import AlertButton from "./alertButton";
 const TVPSSDetailsContentInfo = () => {
+  const [open, setOpen] = useState(false);
+  const handleOpen = () => setOpen(true);
+  const handleClose = () => setOpen(false);
+
   return (
     <Box sx={{ backgroundColor: "#F8FAFF", p: 1, m: 0 }}>
       <Paper
@@ -93,13 +98,13 @@ const TVPSSDetailsContentInfo = () => {
                 "Rakaman dalam Sekolah",
                 "Rakaman dalam dan luar sekolah",
                 "Berkolaborat dengan agensi luar",
-                "Penggunaan Teknologi ‘Green Screen’",
+                "Penggunaan Teknologi 'Green Screen'",
               ].map((item, index) => (
                 <Grid
                   key={index}
                   container
                   alignItems="start"
-                  justifyContent="start" // Center items horizontally
+                  justifyContent="start"
                   spacing={2}
                   sx={{ my: 2 }}
                 >
@@ -128,10 +133,46 @@ const TVPSSDetailsContentInfo = () => {
                       >
                         ADA
                       </Typography>
+                      {index === 0 && (
+                        <IconButton
+                          onClick={handleOpen}
+                          size="small"
+                          sx={{ ml: 1 }}
+                        >
+                          <ImageIcon />
+                        </IconButton>
+                      )}
                     </Box>
                   </Grid>
                 </Grid>
               ))}
+
+              <Modal
+                open={open}
+                onClose={handleClose}
+                aria-labelledby="modal-modal-title"
+                aria-describedby="modal-modal-description"
+              >
+                <Box
+                  sx={{
+                    position: "absolute",
+                    top: "50%",
+                    left: "50%",
+                    transform: "translate(-50%, -50%)",
+                    width: 400,
+                    bgcolor: "background.paper",
+                    border: "2px solid #000",
+                    boxShadow: 24,
+                    p: 4,
+                  }}
+                >
+                  <img
+                    src="/logosekolah.png"
+                    alt="TVPSS Logo"
+                    style={{ width: "100%" }}
+                  />
+                </Box>
+              </Modal>
             </Box>
             <Box textAlign="end" mt={2}>
               <AlertButton

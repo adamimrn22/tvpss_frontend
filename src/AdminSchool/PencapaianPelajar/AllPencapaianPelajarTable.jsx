@@ -23,6 +23,8 @@ import CustomPagination from "./Filters/CustomPagination";
 import DeleteIcon from "@mui/icons-material/Delete";
 import DeleteModal from "./DeleteModal";
 
+import AktifChip from "./StatusChip";
+
 const AllPencapaianPelajarTable = ({ users }) => {
   console.log(users);
   const [page, setPage] = useState(1);
@@ -291,7 +293,9 @@ const AllPencapaianPelajarTable = ({ users }) => {
                   <TableCell>{user.jenisPencapaian}</TableCell>
                   <TableCell>{user.kod}</TableCell>
                   <TableCell>{user.jenisPermohonan}</TableCell>
-                  <TableCell>{user.status}</TableCell>
+                  <TableCell>
+                    <AktifChip statusType={user.status} />
+                  </TableCell>
                   <TableCell>
                     <Stack
                       direction="row"

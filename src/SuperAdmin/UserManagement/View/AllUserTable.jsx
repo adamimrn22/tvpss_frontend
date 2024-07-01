@@ -21,6 +21,7 @@ import CustomPagination from "../../components/Filters/CustomPagination";
 import DeleteIcon from "@mui/icons-material/Delete";
 import EditIcon from "@mui/icons-material/Edit";
 import DeleteModal from "./DeleteModal"; // Import DeleteModal
+import RoleChip from "./RoleChip";
 
 const UserTable = ({ users }) => {
   const [page, setPage] = useState(1); // Start with page 1
@@ -183,7 +184,7 @@ const UserTable = ({ users }) => {
                     Negeri
                   </TableSortLabel>
                 </TableCell>
-                <TableCell>
+                <TableCell sx={{ textAlign: "center" }}>
                   <TableSortLabel
                     active={sortColumn === "userType"}
                     direction={sortColumn === "userType" ? sortOrder : "asc"}
@@ -204,9 +205,11 @@ const UserTable = ({ users }) => {
                   <TableCell>{user.name}</TableCell>
                   <TableCell>{user.email}</TableCell>
                   <TableCell>{user.state}</TableCell>
-                  <TableCell>{user.userType}</TableCell>
+                  <TableCell sx={{ textAlign: "center" }}>
+                    <RoleChip userType={user.userType} />
+                  </TableCell>
                   <TableCell>
-                    <Stack direction={"row"} justifyContent={"space-between"}>
+                    <Stack direction={"row"} justifyContent={"center"}>
                       <Link
                         to="/SuperAdmin/PengurusanPengguna/KemaskiniPengguna"
                         style={{ textDecoration: "none" }}

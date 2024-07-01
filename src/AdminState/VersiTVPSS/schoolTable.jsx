@@ -21,7 +21,7 @@ import RowsPerPageSelector from "../components/Filters/RowsPerPageSelector";
 import CustomPagination from "../components/Filters/CustomPagination";
 import DeleteIcon from "@mui/icons-material/Delete";
 import DeleteModal from "./DeleteModal"; // Import DeleteModal
-import CloudDownloadOutlinedIcon from "@mui/icons-material/CloudDownloadOutlined";
+import AktifChip from "./AktifChip";
 
 import ExportButton from "../ExportButton";
 
@@ -279,7 +279,9 @@ const SchoolTable = ({ schools }) => {
                   <TableCell>{school.schoolName}</TableCell>
                   <TableCell>{school.principalName}</TableCell>
                   <TableCell>{school.version}</TableCell>
-                  <TableCell>{school.status}</TableCell>
+                  <TableCell sx={{ textAlign: "center" }}>
+                    <AktifChip schoolType={school.status} />
+                  </TableCell>
                   <TableCell>
                     <Stack alignItems={"center"}>
                       <Link

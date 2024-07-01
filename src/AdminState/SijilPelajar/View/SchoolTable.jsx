@@ -19,6 +19,7 @@ import FilterButtonMenu from "./components/Filters/FilterButtonMenu";
 import RowsPerPageSelector from "./components/Filters/RowsPerPageSelector";
 import CustomPagination from "./components/Filters/CustomPagination";
 import DeleteModal from "./DeleteModal"; // Import DeleteModal
+import AktifChip from "./StatusChip";
 
 const SchoolTable = ({ schools }) => {
   const [page, setPage] = useState(1); // Start with page 1
@@ -228,7 +229,9 @@ const SchoolTable = ({ schools }) => {
                   <TableCell>{school.principalName}</TableCell>
                   <TableCell>{school.jenis}</TableCell>
                   <TableCell>{school.jenisMohon}</TableCell>
-                  <TableCell>{school.status}</TableCell>
+                  <TableCell>
+                    <AktifChip statusType={school.status} />
+                  </TableCell>
                   <TableCell>
                     {school.status === "Menunggu Kelulusan" ? (
                       <Link

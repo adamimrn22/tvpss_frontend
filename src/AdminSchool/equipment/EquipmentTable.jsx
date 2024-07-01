@@ -24,7 +24,8 @@ import DeleteIcon from "@mui/icons-material/Delete";
 import DeleteModal from "./DeleteModal";
 import TolakModal from "./TolakPermohonan";
 import EditIcon from "@mui/icons-material/Edit";
-import CloudDownloadOutlinedIcon from "@mui/icons-material/CloudDownloadOutlined";
+
+import StatusChip from "./StatusChip";
 
 import ExportButton from "../ExportButton";
 
@@ -290,7 +291,9 @@ const EquipmentTable = ({ equipment }) => {
                   <TableCell>{item.jenis}</TableCell>
                   <TableCell>{item.location}</TableCell>
                   <TableCell>{item.dateAcquired}</TableCell>
-                  <TableCell>{item.status}</TableCell>
+                  <TableCell>
+                    <StatusChip statusType={item.status} />
+                  </TableCell>
                   <TableCell>
                     <Stack direction={"row"} justifyContent={"center"}>
                       <Link

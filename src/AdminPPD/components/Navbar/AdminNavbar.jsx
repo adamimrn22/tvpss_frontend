@@ -12,6 +12,7 @@ import {
 } from "@mui/material";
 import KeyboardArrowDownOutlinedIcon from "@mui/icons-material/KeyboardArrowDownOutlined";
 import CircleNotificationsOutlinedIcon from "@mui/icons-material/CircleNotificationsOutlined";
+import NotificationButton from "./NotificationButton";
 
 const AdminNavbar = () => {
   const [anchorEl, setAnchorEl] = useState(null);
@@ -40,12 +41,7 @@ const AdminNavbar = () => {
       >
         {/* Language Dropdown */}
 
-        <IconButton aria-label="delete">
-          <CircleNotificationsOutlinedIcon
-            fontSize="inherit"
-            sx={{ width: 24, height: 24 }}
-          />
-        </IconButton>
+        <NotificationButton />
 
         <Avatar
           sx={{ bgcolor: "#767EA9", width: 32, height: 32, fontSize: "10px" }}
