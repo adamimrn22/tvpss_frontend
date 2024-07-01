@@ -62,7 +62,7 @@ const Certificate = ({
 
   const icStyle = {
     position: "absolute",
-    top: "50%",
+    top: "52%",
     left: "50%",
     transform: "translate(-50%, -50%)",
     color: fontColor,
