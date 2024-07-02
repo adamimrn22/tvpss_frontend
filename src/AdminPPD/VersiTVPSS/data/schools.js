@@ -2,7 +2,7 @@ const skudaiSchools = [
   {
     id: 1,
     schoolCode: "JEA3042",
-    schoolName: "SMK Air Tawar",
+    schoolName: "SK Air Tawar",
     principalName: "Cik Zurina binti Hanapi",
     version: 1,
     status: "Aktif",
@@ -18,7 +18,7 @@ const skudaiSchools = [
   {
     id: 3,
     schoolCode: "JEA5678",
-    schoolName: "SMK Taman Universiti",
+    schoolName: "SK Taman Universiti",
     principalName: "Puan Siti Aminah binti Abdullah",
     version: 1,
     status: "Tidak Aktif",
@@ -34,7 +34,7 @@ const skudaiSchools = [
   {
     id: 5,
     schoolCode: "JEA3456",
-    schoolName: "SMK Skudai",
+    schoolName: "SJK Skudai",
     principalName: "Cik Noraini binti Mohd Nor",
     version: 2,
     status: "Aktif",
@@ -50,7 +50,7 @@ const skudaiSchools = [
   {
     id: 7,
     schoolCode: "JEA2345",
-    schoolName: "SMK Impian Emas",
+    schoolName: "SK Impian Emas",
     principalName: "Encik Razali bin Ali",
     version: 2,
     status: "Tidak Aktif",
@@ -66,7 +66,7 @@ const skudaiSchools = [
   {
     id: 9,
     schoolCode: "JEA4567",
-    schoolName: "SMK Mutiara Rini",
+    schoolName: "SK Mutiara Rini",
     principalName: "Cik Faridah binti Ismail",
     version: 3,
     status: "Aktif",
